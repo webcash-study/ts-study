@@ -10,5 +10,6 @@
 
 | 번호 | 학습명                                                     | 작성자    |
 | ---- | ---------------------------------------------------------- | --------- |
-| 1    | [실습환경 세팅](./ts_full_course/0_settings/0_settings.md) | chygai232 |
+| 0    | [실습환경 세팅](./ts_full_course/0_settings/0_settings.md) | chygai232 |
+| 1    | [TypeScript 기본기](./ts_full_course/1_basic/1_basic.md) | chygai232 |
 | 5    | [Any / Unknown / Never](./ts_full_course/5_any_unknown_never/5_any_unknown_never.md) | chygai232 |
