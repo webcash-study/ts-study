@@ -1,9 +1,8 @@
-
 # 타입스크립트 기본기
 
 ## 1. 타입스크립트를 사용하는 이유
 
-- 자바스크립트는 동적 타입(dynamicall typed) 언어이기 때문에 코드가 길어지면 유지 보수하기 어려워진다. 
+- 자바스크립트는 동적 타입(dynamicall typed) 언어이기 때문에 코드가 길어지면 유지 보수하기 어려워진다.
 - 따라서 주석을 추가하거나 typeof 기능을 사용해서 런타임에 타입을 체크할 수 있다.
 
 ```
@@ -42,3 +41,84 @@ function add(num1: number, num2: number) {
 console.log(add(1, 2)); // 3
 console.log(add(1, '2')); // Argument of type 'string' is not assignable to parameter of type 'number'
 ```
+
+## 2. 타입스크립트 기본 타입
+
+- 타입스크립트를 사용하면 타입을 강제할 수 있다.
+
+```
+let helloText: string = 'Hello';
+helloText = true; // error
+```
+
+### 2.1 타입스크립트의 7개 기본 타입
+
+- 자바스크립트의 기본 타입과 동일하다.
+
+```
+const stringVar: string = 'String';
+const numberVar: number = 3;
+const bigIntVar: bigint = BigInt(999999); // ES2020
+const boolean: boolean = true;
+const symbolVar: symbol = Symbol(1);
+const nullVar: null = null;
+const undefinedVar: undefined = undefined;
+```
+
+### 2.2 타입스크립트에만 존재하는 타입
+
+#### any
+
+- `any` 타입은 모든 타입의 변수에 저장할 수 있는 데이터 타입이다.
+
+```
+let anyVar: any;
+anyVar = 100;
+anyVar = '코드팩토리';
+anyVar = true;
+
+let testNumber: number = anyVar; // number인데 저장이 가능하다.
+let testString: string = anyVar;
+let testBoolean: boolean = anyVar;
+```
+
+#### unknown
+
+- `unknown` 타입은 `any` 타입과 유사하지만 유일한 차이점은 다른 타입의 변수에 할당이 불가능하다.
+
+```
+let unknownType: unknown;
+unknownType = 100;
+unknownType = '코드팩토리';
+unknownType = true;
+
+let testNumber2: number = unknownType; // error
+let testString2: string = unknownType;
+let testBoolean2: boolean = unknownType;
+```
+
+#### never
+
+- `never` 타입은 어떠한 값도 저장되거나 반환되지 않을 때 사용하는 타입이다.
+- `never` 타입은 `unknown` 타입의 인버스 타입이다.
+
+```
+let neverType: never = null;  // error
+let neverType: never = undefined;
+let neverType: never = 'test';
+```
+
+- 타입스크립트는 타입스크립트 컴파일러(tsc)를 통해 자바스크립트로 변환된다.
+- 따라서 컴파일전의 타입을 보장하기 때문에 `any` 같은 타입을 남용하면 에러가 발생한다.
+
+#### 리스트 타입
+
+```
+const koreanGirlGroup : string[] = ['아이브', '레드벨벳', '블랙핑크'];
+const koreanGirlGroup : string[] = ['아이브', '레드벨벳', '블랙핑크', true, false]; // error
+const booleanList: boolean[] = [true, true, false, false];
+```
+
+## 참고
+
+- [Type Compatibility](https://www.typescriptlang.org/docs/handbook/type-compatibility.html#any-unknown-object-void-undefined-null-and-never-assignability)
