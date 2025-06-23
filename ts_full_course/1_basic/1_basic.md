@@ -100,7 +100,6 @@ let testBoolean2: boolean = unknownType;
 #### never
 
 - `never` 타입은 어떠한 값도 저장되거나 반환되지 않을 때 사용하는 타입이다.
-- `never` 타입은 `unknown` 타입의 인버스 타입이다.
 
 ```
 let neverType: never = null;  // error
