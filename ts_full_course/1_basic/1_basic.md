@@ -180,6 +180,63 @@ const yuJin4: IdolOptional = {
 };
 ```
 
+## 4. Enum
+
+- 타입스크립트는 한정된 값들을 비교하기 위해 `enum` 타입을 제공한다.
+
+```
+/**
+ * 자바스크립트 예시
+ */
+const doneState = "DONE";
+const loadingState = "LOADING";
+const errorState = "ERROR";
+const initialState = "INITAL";
+
+function runWork2() {
+  let state = initialState;
+  try {
+    state = loadingState;
+    // 작업을 한다.
+
+    state = doneState;
+  } catch (e) {
+    state = errorState;
+  } finally {
+    return state;
+  }
+}
+
+console.log(runWork2() === doneState); // true
+
+/**
+ * 타입스크립트: enum 타입
+ */
+enum State {
+  DONE, // 0
+  LOADING, // 1
+  INITIAL, // 2
+  ERROR, // 3
+}
+
+function runWork3() {
+  let state = State.INITIAL;
+  try {
+    state = State.LOADING;
+    // 작업을 한다.
+
+    state = State.DONE;
+  } catch (e) {
+    state = State.ERROR;
+  } finally {
+    return state;
+  }
+}
+
+console.log(runWork3() === State.DONE); // true
+console.log(runWork3()); // 0
+```
+
 ## 참고
 
 - [Type Compatibility](https://www.typescriptlang.org/docs/handbook/type-compatibility.html#any-unknown-object-void-undefined-null-and-never-assignability)
