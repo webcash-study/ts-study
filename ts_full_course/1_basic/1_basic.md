@@ -118,6 +118,68 @@ const koreanGirlGroup : string[] = ['아이브', '레드벨벳', '블랙핑크',
 const booleanList: boolean[] = [true, true, false, false];
 ```
 
+## 3. Type과 Interface 기본기
+
+### 3.1 Type
+
+- `타입(type)`은 자바스크립트의 데이터 타입에 이름을 붙여주는 역할을 한다.
+
+```
+
+// 원시 타입 선언
+type NewStringType = string; // string은 NewStringType이다.
+type NewNullType = null;
+type NewNumberType = number;
+type MaleOrFemale = "male" | "female"; // 유니언(Union)
+
+const stringVar: NewStringType = "test";
+
+// 오브젝트 타입 선언
+type IdolType = {
+  name: string;
+  year?: number; // optional
+};
+```
+
+### 3.2 Inteface
+
+- type과 유사한 기능을 제공한다.
+- type과 차이점은 원시(primitive) 타입에 대한 선언은 불가능하다.
+
+```
+interface IdolInterface {
+  name: string;
+  year: number;
+}
+
+const yuJin2: IdolInterface = {
+  name: "안유진",
+  year: 2002,
+};
+
+// interface에서 Type 사용 가능
+interface IdolIT {
+  name: NewStringType;
+  year: NewNumberType;
+}
+
+const yuJin3: IdolIT = {
+  name: "안유진",
+  year: 2002,
+};
+
+// Optional 타입
+interface IdolOptional {
+  name: string;
+  year?: number;
+}
+
+const yuJin4: IdolOptional = {
+  name: "안유진",
+  // year: 2002,
+};
+```
+
 ## 참고
 
 - [Type Compatibility](https://www.typescriptlang.org/docs/handbook/type-compatibility.html#any-unknown-object-void-undefined-null-and-never-assignability)
