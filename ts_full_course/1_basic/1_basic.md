@@ -307,6 +307,37 @@ const nos2 = numbersAndString[6]; // const nos2: string | number
 // const first2 = twoNumbers[3]; // Tuple type 'readonly [1, 3]' of length '2' has no element at index '3'
 ```
 
+## 6. 캐스팅
+
+- 타입스크립트가 자바스크립트로 변환되면 캐스팅 기능은 실행 환경에서 아무런 기능을 하지 않는다.
+- 따라서 캐스팅 기능을 남용하면 코드 상에서 사용하는 타입과 실제 실행할 때 사용하는 타입이 일치하지 않을 수 있다.
+
+```
+const codefactory = "code factory"; // string
+const testNumber = 3; // number
+
+// number 타입은 string 타입의 메소드 호출이 불가능하다.
+console.log(codefactory.toUpperCase());
+console.log(testNumber.toUpperCase()); // Property 'toUpperCase' does not exist on type '3'
+
+// 코드에서 사용하는 타입과 실행할 때 사용하는 타입이 다르다.
+let sampleNumber: any = 5;
+let stringVar = sampleNumber as string; // let stringVar: string
+console.log(typeof (sampleNumber as string)); // number
+```
+
+- `any` 타입은 무엇이든 될 수 있기 때문에, 코드 상에서 에러가 표시되지 않는다.
+- 따라서 오류가 발생한다고 무조건 `any` 타입을 사용하는 것에 주의해야 한다.
+
+```
+// any 타입은 무엇이든 될 수 있다. (toUpperCase도 호출)
+let sampleNumber: any = 5;
+console.log(sampleNumber.toUpperCase()); // TypeError: sampleNumber.toUpperCase is not a function
+
+let number = 5; // number;
+console.log((number as any).toUpperCase()); // TypeError: number.toUpperCase is not a function
+```
+
 ## 참고
 
 - [Type Compatibility](https://www.typescriptlang.org/docs/handbook/type-compatibility.html#any-unknown-object-void-undefined-null-and-never-assignability)
