@@ -8,9 +8,17 @@
 
 ### 목차
 
-| 번호 | 학습명                                                     | 작성자    |
-| ---- | ---------------------------------------------------------- | --------- |
-| 0    | [실습환경 세팅](./ts_full_course/0_settings/0_settings.md) | chygai232 |
-| 1    | [TypeScript 기본기](./ts_full_course/1_basic/1_basic.md) | chygai232 |
+| 번호 | 학습명                                                                                        | 작성자    |
+| ---- | --------------------------------------------------------------------------------------------- | --------- |
+| 0    | [실습환경 세팅](./ts_full_course/0_settings/0_settings.md)                                    | chygai232 |
+| 1    | [TypeScript 기본기](./ts_full_course/1_basic/1_basic.md)                                      | chygai232 |
 | 2    | [Union과 Intersection](./ts_full_course/2_union_and_intersection/2_union_and_intersection.md) | chygai232 |
-| 5    | [Any / Unknown / Never](./ts_full_course/5_any_unknown_never/5_any_unknown_never.md) | chygai232 |
+| 5    | [Any / Unknown / Never](./ts_full_course/5_any_unknown_never/5_any_unknown_never.md)          | chygai232 |
+
+## TypeScript 공식 문서
+
+### 목차
+
+| 번호 | 학습명                                                                            | 작성자    |
+| ---- | --------------------------------------------------------------------------------- | --------- |
+| -    | [인터페이스](./ts_docs/get_started/handbook/every_types/interfaces/interfaces.md) | chygai232 |
