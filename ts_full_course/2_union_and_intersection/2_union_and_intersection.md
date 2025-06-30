@@ -8,7 +8,7 @@
 - 예를 들어 문자열(string) 또는 불리언(boolean) 타입을 병합하기 위해 `|` 키워드를 사용한다.
 
 ```
-type StringOrBooleanType = string | boolean; 
+type StringOrBooleanType = string | boolean;
 
 let stringOrBooleanType: StringOrBooleanType = '아이브';
 stringOrBooleanType = true;
@@ -28,7 +28,6 @@ let state: StateTypes = 'DONE';
 state = 'LOADING';
 // state = 'INITIAL'; // Type '"INITIAL"' is not assignable to type 'StateTypes'
 ```
-
 
 ### 1.2 리스트 타입 선언
 
@@ -182,3 +181,43 @@ const personOrCat: PersonOrCat = {
     country: '영국',
 }
 ```
+
+## 2. Intersection 기본기
+
+- `교집합(intersection)` 또는 `AND`의 개념
+- 오브젝트 타입을 교집합하면 오브젝트에서 모든 프로퍼티를 포함하는 오브젝트 타입을 선언할 수 있다.
+
+```
+interface Human {
+  name: string;
+  age: number;
+}
+
+interface Contacts {
+  phone: string;
+  address: string;
+}
+
+type HumanAndContacts = Human & Contacts;
+
+// Contacts의 phone, address가 필요하다.
+let humanAndContacts: HumanAndContacts = {
+  name: "코드팩토리",
+  age: 32,
+  phone: "01012345678",
+  address: "서울시",
+};
+```
+
+- 하지만 원시 타입을 교집합하면 절대로 나올 수 없는 상황이므로 `never` 타입이 선언된다.
+
+```
+// 원시 타입을 인터섹션하면 never 타입으로 변경된다.
+// never: 절대로 존재할 수 없는 상황에서 사용하는 타입
+type NumberAndString = number & string;
+
+// never 타입은 어떤 타입에도 해당되지 않는다.
+let numberAndString: NumberAndString = undefined;
+```
+
+- 따라서 오브젝트 타입의 `intersection`은 `AND` 개념이고, 원시 타입의 `intersection`은 `never` 타입이라고 이해하면 된다.
